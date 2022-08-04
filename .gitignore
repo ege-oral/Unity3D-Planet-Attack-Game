@@ -74,3 +74,5 @@ crashlytics-build.properties
 #Egeo ignore files-folders.
 /[Aa]ssets/TerrainSampleAssets/**
 /[Aa]ssets/TerrainSampleAssets.meta
+/[Aa]ssets/StarterAssets/**
+/[Aa]ssets/Tree9/**
