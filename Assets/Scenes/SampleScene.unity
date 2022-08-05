@@ -568,12 +568,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 539948309}
     m_Modifications:
     - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
+      propertyPath: xRange
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
+      propertyPath: yRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: moveSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
+      propertyPath: controlRollFctor
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
+      propertyPath: controlYawFactor
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
+      propertyPath: controlPitchFactor
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 1510364872509504, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: m_Name
-      value: StarSparrow1
+      value: Player Ship
       objectReference: {fileID: 0}
     - target: {fileID: 4433942057210488, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: m_RootOrder
