@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4433942057210488}
   - component: {fileID: 33144904916599870}
   - component: {fileID: 23649099192709106}
+  - component: {fileID: -5862990751551739654}
   m_Layer: 0
   m_Name: "Player Sh\u0131p"
   m_TagString: Untagged
@@ -84,6 +85,67 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5862990751551739654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510364872509504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a01dccbd2708bc4281866f68e81ae96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement:
+    m_Name: Movement
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c9aaa4fd-d5f4-4776-9353-1aa1d32278fd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 5abb9f36-53ef-4995-92b0-7bd18acdf120
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 83477b73-20e8-46a2-8d8e-0fd83cebbd66
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 969d6dd4-9891-4d91-af57-53f9cba863e2
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 5f078f94-5695-4375-a1e9-a4a9d5e88b81
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    - m_Name: right
+      m_Id: e96f444d-6925-4869-b61b-67c154173d14
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement
+      m_Flags: 8
+    m_Flags: 0
 --- !u!1 &112353598050226223
 GameObject:
   m_ObjectHideFlags: 0

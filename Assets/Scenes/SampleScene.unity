@@ -567,6 +567,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 539948309}
     m_Modifications:
+    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1510364872509504, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: m_Name
       value: StarSparrow1
@@ -589,15 +593,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4433942057210488, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4433942057210488, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5814
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4433942057210488, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4433942057210488, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: m_LocalRotation.w
