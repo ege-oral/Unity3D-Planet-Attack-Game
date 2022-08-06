@@ -87,6 +87,13 @@ public class Player : MonoBehaviour
 
     private void PlayerRotation()
     {
+        // Preventing if pitch, yaw or roll wants to rotate same time.
+        if(horizontalThrow > 0 && verticalThrow > 0 || 
+           horizontalThrow < 0 && verticalThrow < 0 ||
+           horizontalThrow > 0 && verticalThrow < 0 ||
+           horizontalThrow < 0 && verticalThrow > 0) { return; }
+
+        
         PlayerPitchRotation();
         PlayerYawRotation();
         PlayerRollRotation();
