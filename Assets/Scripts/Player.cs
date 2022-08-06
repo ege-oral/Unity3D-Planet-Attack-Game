@@ -11,23 +11,36 @@ public class Player : MonoBehaviour
     [SerializeField] float yRange = 3f;
 
     float horizontalThrow;
-    float verticalThrow = 0;
+    float verticalThrow;
+
     // For Pitch
-    [SerializeField] float positionPitchFactor = -2f;
-    [SerializeField] float controlPitchFactor = -20f;
-
-    // For Yaw
-    [SerializeField] float controlYawFactor = -5f;
-    // For Roll
-    [SerializeField] float controlRollFctor = -20f;
     float pitch = 0f;
-    float yaw = 0f;
-    float roll = 0f;
-
-    float acceleration = 1f;
+    float pitchAcceleration = 0f;
+    //[SerializeField] 
+    float pitchAccelerationFactor = 100f;
+    //[SerializeField] 
+    float minPitchRotation = -30f;
+    //[SerializeField] 
+    float maxPitchRotation = 30f;
     bool isUp =  true;
 
-    float tmp;
+    // For Yaw
+    float yaw = 0f;
+    float yawAcceleration = 0f;
+    //[SerializeField] 
+    float yawAccelerationFactor = 20f;
+    //[SerializeField] 
+    float minYawRotation = -5f;
+    //[SerializeField] 
+    float maxYawRotation = 5f;
+    bool isRight =  true;
+
+    // For Roll
+    [SerializeField] float controlRollFctor = -20f;
+    
+    
+    float roll = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +82,8 @@ public class Player : MonoBehaviour
     private void PlayerRotation()
     {
         PlayerPitchRotation();
-        yaw = horizontalThrow * controlYawFactor;
+        PlayerYawRotation();
+        //yaw = horizontalThrow * controlYawFactor;
         roll = horizontalThrow * controlRollFctor;
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
@@ -77,16 +91,14 @@ public class Player : MonoBehaviour
 
     private void PlayerPitchRotation()
     {
-        float min = -30f; // Minimum rotation value.
-        float max = 30f; // Maximum rotation value.
         // Going Up
         if(verticalThrow == 1)
         {
             // Checking previous position of the ship.
             if(!isUp)
-                acceleration = 0;
-            acceleration +=  100f  * Time.deltaTime * -verticalThrow;
-            pitch = Mathf.Clamp(acceleration, min, max);
+                pitchAcceleration = 0;
+            pitchAcceleration +=  pitchAccelerationFactor  * Time.deltaTime * -verticalThrow;
+            pitch = Mathf.Clamp(pitchAcceleration, minPitchRotation, maxPitchRotation);
             isUp = true;
         }
         // Going Down
@@ -94,9 +106,9 @@ public class Player : MonoBehaviour
         {
             // Checking previous position of the ship.
             if(isUp)
-                acceleration = 0;
-            acceleration +=  100f  * Time.deltaTime * -verticalThrow;
-            pitch = Mathf.Clamp(acceleration, min, max);
+                pitchAcceleration = 0;
+            pitchAcceleration +=  pitchAccelerationFactor  * Time.deltaTime * -verticalThrow;
+            pitch = Mathf.Clamp(pitchAcceleration, minPitchRotation, maxPitchRotation);
             isUp = false;
         }
         // Steady
@@ -104,15 +116,55 @@ public class Player : MonoBehaviour
         {
             if(pitch > 0)
             {
-                pitch -= 50f * Time.deltaTime;
-                pitch = Mathf.Clamp(pitch, 0, max);
+                pitch -= pitchAccelerationFactor * Time.deltaTime;
+                pitch = Mathf.Clamp(pitch, 0, maxPitchRotation);
             }
             else if (pitch < 0)
             {
-                pitch += 50f * Time.deltaTime;
-                pitch = Mathf.Clamp(pitch, min, 0);
+                pitch += pitchAccelerationFactor * Time.deltaTime;
+                pitch = Mathf.Clamp(pitch, minPitchRotation, 0);
             }
         }
+    }
+
+    private void PlayerYawRotation()
+    {
+        // Going Right
+        if(horizontalThrow == 1)
+        {
+            // Checking previous position of the ship.
+            if(!isRight)
+                yawAcceleration = 0;
+            yawAcceleration +=  yawAccelerationFactor * Time.deltaTime * -horizontalThrow;
+            yaw = Mathf.Clamp(yawAcceleration, minYawRotation, maxYawRotation);
+            isRight = true;
+        }
+        // Going Left
+        else if(horizontalThrow == -1)
+        {
+            // Checking previous position of the ship.
+            if(isRight)
+                yawAcceleration = 0;
+            yawAcceleration +=  yawAccelerationFactor * Time.deltaTime * -horizontalThrow;
+            yaw = Mathf.Clamp(yawAcceleration, minYawRotation, maxYawRotation);
+            isRight = false;
+        }
+        // Steady
+        else
+        {
+            if(yaw > 0)
+            {
+                yaw -= yawAccelerationFactor * Time.deltaTime;
+                yaw = Mathf.Clamp(yaw, 0, maxYawRotation);
+            }
+            else if (yaw < 0)
+            {
+                yaw += yawAccelerationFactor * Time.deltaTime;
+                yaw = Mathf.Clamp(yaw, minYawRotation, 0);
+            }
+        }
+        Debug.Log("ho" + horizontalThrow);
+        Debug.Log("yaw" + yaw);
     }
 
     
