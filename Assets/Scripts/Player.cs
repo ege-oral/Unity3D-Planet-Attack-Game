@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] float xRange = 2.5f;
     [SerializeField] float yRange = 3f;
 
-    float horizontalThrow, verticalThrow;
+    float horizontalThrow;
+    float verticalThrow = 0;
     // For Pitch
     [SerializeField] float positionPitchFactor = -2f;
     [SerializeField] float controlPitchFactor = -20f;
@@ -19,7 +20,14 @@ public class Player : MonoBehaviour
     [SerializeField] float controlYawFactor = -5f;
     // For Roll
     [SerializeField] float controlRollFctor = -20f;
+    float pitch = 0f;
+    float yaw = 0f;
+    float roll = 0f;
 
+    float acceleration = 1f;
+    bool isUp =  true;
+
+    float tmp;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +40,16 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
         PlayerRotation();
+    }
+
+    private void OnEnable() 
+    {
+        movement.Enable();   
+    }
+
+    private void OnDisable() 
+    {
+        movement.Disable();   
     }
 
     private void PlayerMovement()
@@ -50,20 +68,52 @@ public class Player : MonoBehaviour
 
     private void PlayerRotation()
     {
-        float pitch = transform.localPosition.y * positionPitchFactor + verticalThrow * controlPitchFactor;
-        float yaw = horizontalThrow * controlYawFactor;
-        float roll = horizontalThrow * controlRollFctor;
+        PlayerPitchRotation();
+        yaw = horizontalThrow * controlYawFactor;
+        roll = horizontalThrow * controlRollFctor;
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
-    private void OnEnable() 
+    private void PlayerPitchRotation()
     {
-        movement.Enable();   
+        float min = -30f; // Minimum rotation value.
+        float max = 30f; // Maximum rotation value.
+        // Going Up
+        if(verticalThrow == 1)
+        {
+            // Checking previous position of the ship.
+            if(!isUp)
+                acceleration = 0;
+            acceleration +=  100f  * Time.deltaTime * -verticalThrow;
+            pitch = Mathf.Clamp(acceleration, min, max);
+            isUp = true;
+        }
+        // Going Down
+        else if(verticalThrow == -1)
+        {
+            // Checking previous position of the ship.
+            if(isUp)
+                acceleration = 0;
+            acceleration +=  100f  * Time.deltaTime * -verticalThrow;
+            pitch = Mathf.Clamp(acceleration, min, max);
+            isUp = false;
+        }
+        // Steady
+        else
+        {
+            if(pitch > 0)
+            {
+                pitch -= 50f * Time.deltaTime;
+                pitch = Mathf.Clamp(pitch, 0, max);
+            }
+            else if (pitch < 0)
+            {
+                pitch += 50f * Time.deltaTime;
+                pitch = Mathf.Clamp(pitch, min, 0);
+            }
+        }
     }
 
-    private void OnDisable() 
-    {
-        movement.Disable();   
-    }
+    
 }
