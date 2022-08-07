@@ -567,34 +567,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 539948309}
     m_Modifications:
-    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
-      propertyPath: fire.m_Id
-      value: 34ca03ea-2267-4388-987e-6251a35d7bc2
-      objectReference: {fileID: 0}
-    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
-      propertyPath: fire.m_Name
-      value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
-      propertyPath: fire.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
-      propertyPath: fire.m_SingletonActionBindings.Array.data[0].m_Id
-      value: eb3b3aff-c192-4a75-995c-547f40b39f2f
-      objectReference: {fileID: 0}
-    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
-      propertyPath: fire.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Keyboard>/space
-      objectReference: {fileID: 0}
-    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
-      propertyPath: fire.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: -5862990751551739654, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
-      propertyPath: fire.m_SingletonActionBindings.Array.data[0].m_Interactions
-      value: Press
-      objectReference: {fileID: 0}
     - target: {fileID: 1510364872509504, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
       propertyPath: m_Name
       value: Player Ship

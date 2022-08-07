@@ -148,9 +148,29 @@ MonoBehaviour:
       m_Action: Movement
       m_Flags: 8
     m_Flags: 0
+  fire:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 34ca03ea-2267-4388-987e-6251a35d7bc2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: eb3b3aff-c192-4a75-995c-547f40b39f2f
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fire
+      m_Flags: 0
+    m_Flags: 0
   moveSpeed: 10
   xRange: 2.5
   yRange: 3
+  lasers:
+  - {fileID: 8239456087781383916}
+  - {fileID: 6568553846488782999}
 --- !u!1 &112353598050226223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,6 +1731,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34c8b6d5985a87448b10386e66c877c2, type: 3}
+--- !u!1 &8239456087781383916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1285337114545149864, guid: 34c8b6d5985a87448b10386e66c877c2, type: 3}
+  m_PrefabInstance: {fileID: 7173674434584463684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8277691654975439033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1256018655640259069, guid: 34c8b6d5985a87448b10386e66c877c2, type: 3}
@@ -1773,6 +1798,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7ddf5a4e2c9f9c49a9ece74ee5992b4, type: 3}
+--- !u!1 &6568553846488782999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2586401749366036467, guid: c7ddf5a4e2c9f9c49a9ece74ee5992b4, type: 3}
+  m_PrefabInstance: {fileID: 8704488705564610404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6597801973927904962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2548078252913330598, guid: c7ddf5a4e2c9f9c49a9ece74ee5992b4, type: 3}

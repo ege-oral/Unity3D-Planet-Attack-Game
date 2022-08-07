@@ -9,48 +9,42 @@ public class Player : MonoBehaviour
     [SerializeField] InputAction movement;
     [SerializeField] InputAction fire;
 
-    
+    [Header("General Setup Settings")]
+    [Tooltip("How fast ship moves up and down based upon player input.")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float xRange = 2.5f;
     [SerializeField] float yRange = 3f;
-
     [SerializeField] GameObject[] lasers;
 
-
+    //Horizontal and Vertical Throw.
     float horizontalThrow;
     float verticalThrow;
 
     // For Pitch
-    float pitch = 0f; 
-    float pitchAcceleration = 0f;
-    //[SerializeField] 
-    float pitchAccelerationFactor = 100f;
-    //[SerializeField] 
-    float minPitchRotation = -30f;
-    //[SerializeField] 
-    float maxPitchRotation = 30f;
-    bool isUp =  true;
+    float pitch = 0f;
+    [Header("Pitch Variables")] 
+    [SerializeField] float pitchAcceleration = 0f;
+    [SerializeField] float pitchAccelerationFactor = 100f;
+    [SerializeField] float minPitchRotation = -30f;
+    [SerializeField] float maxPitchRotation = 30f;
+    bool isUp_Pitch =  true;
 
     // For Yaw
     float yaw = 0f;
-    float yawAcceleration = 0f;
-    //[SerializeField] 
-    float yawAccelerationFactor = 20f;
-    //[SerializeField] 
-    float minYawRotation = -5f;
-    //[SerializeField] 
-    float maxYawRotation = 5f;
+    [Header("Yaw Variables")]
+    [SerializeField] float yawAcceleration = 0f;
+    [SerializeField] float yawAccelerationFactor = 20f;
+    [SerializeField] float minYawRotation = -5f;
+    [SerializeField] float maxYawRotation = 5f;
     bool isRight_Yaw =  true;
 
     // For Roll
     float roll = 0f;
-    float rollAcceleration = 0f;
-    //[SerializeField] 
-    float rollAccelerationFactor = 100f;
-    //[SerializeField] 
-    float minRollRotation = -20f;
-    //[SerializeField] 
-    float maxRollRotation = 20f;
+    [Header("Roll Variables")]
+    [SerializeField] float rollAcceleration = 0f;
+    [SerializeField] float rollAccelerationFactor = 100f;
+    [SerializeField] float minRollRotation = -20f;
+    [SerializeField] float maxRollRotation = 20f;
     bool isRight_Roll =  true;
 
 
@@ -117,21 +111,21 @@ public class Player : MonoBehaviour
         if(verticalThrow == 1)
         {
             // Checking previous position of the ship.
-            if(!isUp)
+            if(!isUp_Pitch)
                 pitchAcceleration = 0;
             pitchAcceleration +=  pitchAccelerationFactor  * Time.deltaTime * -verticalThrow;
             pitch = Mathf.Clamp(pitchAcceleration, minPitchRotation, maxPitchRotation);
-            isUp = true;
+            isUp_Pitch = true;
         }
         // Going Down
         else if(verticalThrow == -1)
         {
             // Checking previous position of the ship.
-            if(isUp)
+            if(isUp_Pitch)
                 pitchAcceleration = 0;
             pitchAcceleration +=  pitchAccelerationFactor  * Time.deltaTime * -verticalThrow;
             pitch = Mathf.Clamp(pitchAcceleration, minPitchRotation, maxPitchRotation);
-            isUp = false;
+            isUp_Pitch = false;
         }
         // Steady
         else
