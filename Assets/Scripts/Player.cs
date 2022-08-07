@@ -5,10 +5,17 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [Header("Input Actions")]
     [SerializeField] InputAction movement;
+    [SerializeField] InputAction fire;
+
+    
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float xRange = 2.5f;
     [SerializeField] float yRange = 3f;
+
+    [SerializeField] GameObject[] lasers;
+
 
     float horizontalThrow;
     float verticalThrow;
@@ -59,16 +66,19 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
         PlayerRotation();
+        FiringLaser();
     }
 
     private void OnEnable() 
     {
         movement.Enable();   
+        fire.Enable();
     }
 
     private void OnDisable() 
     {
         movement.Disable();   
+        fire.Disable();
     }
 
     private void PlayerMovement()
@@ -212,6 +222,15 @@ public class Player : MonoBehaviour
                 roll += rollAccelerationFactor * Time.deltaTime;
                 roll = Mathf.Clamp(roll, minRollRotation, 0);
             }
+        }
+    }
+
+    private void FiringLaser()
+    {
+        foreach(GameObject laser in lasers)
+        {
+            var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = (fire.ReadValue<float>() > 0.5); // If fire key pressed.
         }
     }
     
