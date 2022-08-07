@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     float verticalThrow;
 
     // For Pitch
-    float pitch = 0f;
+    float pitch = 0f; 
     float pitchAcceleration = 0f;
     //[SerializeField] 
     float pitchAccelerationFactor = 100f;
