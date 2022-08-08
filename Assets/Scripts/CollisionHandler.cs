@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    [SerializeField] float loadDelay = 2f;
+    [SerializeField] ParticleSystem impactVFX;
+    [SerializeField] float loadDelay = 1f;
+
     private void OnTriggerEnter(Collider other) 
     {
+        GetComponent<MeshRenderer>().enabled = false;
+        impactVFX.Play();
         FindObjectOfType<Player>().isAlive = false;
+
         StartCoroutine(ReloadLevel());
     }
 
