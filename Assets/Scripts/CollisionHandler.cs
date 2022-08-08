@@ -11,6 +11,7 @@ public class CollisionHandler : MonoBehaviour
     private void OnTriggerEnter(Collider other) 
     {
         GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
         impactVFX.Play();
         FindObjectOfType<Player>().isAlive = false;
 
