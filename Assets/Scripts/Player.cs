@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] float xRange = 10f;
     [SerializeField] float yRange = 5f;
     [SerializeField] GameObject[] lasers;
+    public bool isAlive = true;
 
     //Horizontal and Vertical Throw.
     float horizontalThrow;
@@ -57,7 +58,9 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        if(!isAlive) { return; }
+
         PlayerMovement();
         PlayerRotation();
         FiringLaser();
