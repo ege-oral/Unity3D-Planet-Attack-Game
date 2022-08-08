@@ -11,9 +11,9 @@ public class Player : MonoBehaviour
 
     [Header("General Setup Settings")]
     [Tooltip("How fast ship moves up and down based upon player input.")]
-    [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float xRange = 2.5f;
-    [SerializeField] float yRange = 3f;
+    [SerializeField] float moveSpeed = 20f;
+    [SerializeField] float xRange = 10f;
+    [SerializeField] float yRange = 5f;
     [SerializeField] GameObject[] lasers;
 
     //Horizontal and Vertical Throw.
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     float pitch = 0f;
     [Header("Pitch Variables")] 
     [SerializeField] float pitchAcceleration = 0f;
-    [SerializeField] float pitchAccelerationFactor = 100f;
+    [SerializeField] float pitchAccelerationFactor = 200f;
     [SerializeField] float minPitchRotation = -30f;
     [SerializeField] float maxPitchRotation = 30f;
     bool isUp_Pitch =  true;
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     float roll = 0f;
     [Header("Roll Variables")]
     [SerializeField] float rollAcceleration = 0f;
-    [SerializeField] float rollAccelerationFactor = 100f;
+    [SerializeField] float rollAccelerationFactor = 200f;
     [SerializeField] float minRollRotation = -20f;
     [SerializeField] float maxRollRotation = 20f;
     bool isRight_Roll =  true;
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
 
         transform.localPosition += new Vector3(horizontalSpeed, verticalSpeed, 0f);
         transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, -xRange, xRange), 
-                                              Mathf.Clamp(transform.localPosition.y, -yRange, yRange + 1f), 0f);
+                                              Mathf.Clamp(transform.localPosition.y, -yRange, yRange + 2f), 0f);
     }
 
     private void PlayerRotation()
@@ -130,6 +130,7 @@ public class Player : MonoBehaviour
         // Steady
         else
         {
+            pitchAcceleration = 0;
             if(pitch > 0)
             {
                 pitch -= pitchAccelerationFactor * Time.deltaTime;
@@ -168,6 +169,7 @@ public class Player : MonoBehaviour
         // Steady
         else
         {
+            yawAcceleration = 0;
             if(yaw > 0)
             {
                 yaw -= yawAccelerationFactor * Time.deltaTime;
@@ -206,6 +208,7 @@ public class Player : MonoBehaviour
         // Steady
         else
         {
+            rollAcceleration = 0;
             if(roll > 0)
             {
                 roll -= rollAccelerationFactor * Time.deltaTime;
