@@ -741,7 +741,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1342796926
 GameObject:
@@ -754,6 +754,7 @@ GameObject:
   - component: {fileID: 1342796927}
   - component: {fileID: 1342796929}
   - component: {fileID: 1342796928}
+  - component: {fileID: 1342796930}
   m_Layer: 5
   m_Name: Score Board Text
   m_TagString: Untagged
@@ -835,7 +836,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -878,6 +879,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342796926}
   m_CullTransparentMesh: 1
+--- !u!114 &1342796930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342796926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c7ff6ba14bb264e8c4fd92c16e2468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1376286232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6212563281532098354, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
@@ -1301,50 +1314,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5556107252448271241, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
   m_PrefabInstance: {fileID: 1387906269}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1507945452
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1507945454}
-  - component: {fileID: 1507945453}
-  m_Layer: 0
-  m_Name: Score Board
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1507945453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507945452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c7ff6ba14bb264e8c4fd92c16e2468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1507945454
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507945452}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1514663183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8036899507649171192, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
@@ -1449,7 +1418,7 @@ RectTransform:
   m_Children:
   - {fileID: 1342796927}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1666,10 +1635,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Ship (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5527191120785529954, guid: 3e4f8951a85f71944bd938c41afbe6b3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5527191120785529958, guid: 3e4f8951a85f71944bd938c41afbe6b3, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1764,7 +1729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5527191120785529954, guid: 3e4f8951a85f71944bd938c41afbe6b3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5527191120785529958, guid: 3e4f8951a85f71944bd938c41afbe6b3, type: 3}
       propertyPath: m_RootOrder

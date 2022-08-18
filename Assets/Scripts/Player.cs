@@ -59,7 +59,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(!isAlive) { return; }
+        // If player dies.
+        if(!isAlive) 
+        { 
+            StopFiringLaser();    
+            return; 
+        }
 
         PlayerMovement();
         PlayerRotation();
@@ -230,7 +235,17 @@ public class Player : MonoBehaviour
         foreach(GameObject laser in lasers)
         {
             var emissionModule = laser.GetComponent<ParticleSystem>().emission;
-            emissionModule.enabled = (fire.ReadValue<float>() > 0.5); // If fire key pressed.
+            emissionModule.enabled = (fire.ReadValue<float>() > 0.5);; // If fire key pressed.
+        }   
+    }
+
+    // Check Later.
+    private void StopFiringLaser()
+    {
+        foreach(GameObject laser in lasers)
+        {
+            var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = false; // If fire key pressed.
         }
     }
     

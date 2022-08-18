@@ -9,8 +9,6 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float loadDelay = 1f;
     [SerializeField] List<GameObject> childCollidersObjects;
 
-   
-
     private void OnTriggerEnter(Collider other) 
     {
         
