@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     // Make a stack of vfx
     [SerializeField] Transform parent;
     [SerializeField] int scorePerHit = 15;
+    int enemyHealth = 10;
 
     ScoreBoard scoreBoard;
     private void Start() 
@@ -18,8 +19,13 @@ public class Enemy : MonoBehaviour
  
     private void OnParticleCollision(GameObject other) 
     {
-        ProcessHit();
-        DestroyEnemy();
+        enemyHealth--;
+        if(enemyHealth <= 0)
+        {
+            ProcessHit();
+            DestroyEnemy();
+        }
+        
     }
 
     private void ProcessHit()
@@ -32,5 +38,10 @@ public class Enemy : MonoBehaviour
         GameObject vfx = Instantiate(enemeyExplosionVFX, transform.position, Quaternion.identity);
         vfx.transform.parent = parent;
         Destroy(gameObject);
+    }
+
+    private void Hit()
+    {
+        
     }
 }
