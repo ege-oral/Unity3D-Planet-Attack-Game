@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f39ef9caaa41c34b8a0fdeaf8777cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemeyExplosionVFX: {fileID: 3200836327345539238, guid: d2c744d78799a47488ef7b2f880fbb22, type: 3}
+  parent: {fileID: 1915364930383919462, guid: d023836f136e6074186bf123f0a1cc3a, type: 3}
