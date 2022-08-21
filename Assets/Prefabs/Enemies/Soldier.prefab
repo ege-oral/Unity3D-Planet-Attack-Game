@@ -1418,6 +1418,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemeyExplosionVFX: {fileID: 3200836327345539238, guid: d2c744d78799a47488ef7b2f880fbb22, type: 3}
   hitVFX: {fileID: 4184831820040277122, guid: 1bee58de964145a42bfce895cf98666d, type: 3}
-  parent: {fileID: 0}
-  killScore: 15
-  enemyHealth: 10
+  killScore: 30
+  enemyHealth: 5

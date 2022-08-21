@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject hitVFX;
 
     // Make a stack of vfx
-    [SerializeField] Transform parent;
+    GameObject parentGameobject;
     [SerializeField] int killScore = 15;
     [SerializeField] int enemyHealth = 10;
 
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private void Start() 
     {
         AddRigidbody();
-
+        parentGameobject = GameObject.FindGameObjectWithTag("Spawn At Runtime");
         scoreBoard = FindObjectOfType<ScoreBoard>();    
     }
  
@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour
     {
 
         EnemyHit();
-        print("helo");
 
         if(enemyHealth <= 0)
         {
@@ -36,15 +35,15 @@ public class Enemy : MonoBehaviour
 
     private void EnemyHit()
     {
-        GameObject vfx = Instantiate(hitVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;
         enemyHealth--;
+        GameObject vfx = Instantiate(hitVFX, transform.position, Quaternion.identity);
+        vfx.transform.parent = parentGameobject.transform;
     }
 
     private void DestroyEnemy()
     {
         GameObject vfx = Instantiate(enemeyExplosionVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;
+        vfx.transform.parent = parentGameobject.transform;
         Destroy(gameObject);
     }
 
