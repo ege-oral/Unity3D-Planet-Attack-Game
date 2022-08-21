@@ -11,18 +11,20 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform parent;
     [SerializeField] int killScore = 15;
     [SerializeField] int enemyHealth = 10;
-    
 
     ScoreBoard scoreBoard;
     private void Start() 
     {
-       scoreBoard = FindObjectOfType<ScoreBoard>();    
+        AddRigidbody();
+
+        scoreBoard = FindObjectOfType<ScoreBoard>();    
     }
  
     private void OnParticleCollision(GameObject other) 
     {
-        
+
         EnemyHit();
+        print("helo");
 
         if(enemyHealth <= 0)
         {
@@ -49,5 +51,11 @@ public class Enemy : MonoBehaviour
     private void IncreaseEnemyKillScore()
     {
         scoreBoard.IncreaseScore(killScore);
+    }
+
+    private void AddRigidbody()
+    {
+        Rigidbody rb = this.gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = false;
     }
 }
