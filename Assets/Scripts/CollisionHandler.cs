@@ -10,16 +10,31 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] List<GameObject> childCollidersObjects;
 
     [SerializeField] GameObject finishPoint;
+    bool flag = false;
+    Vector3 newPos;
 
     private void Start() 
     {
         Invoke("ActivateFinishCollider", 3f);
     }
 
+    private void Update() 
+    {
+        if(flag)
+            transform.position = newPos;
+    }
     private void OnTriggerEnter(Collider other) 
     {
         if(other.tag == "Finish")
         {
+            newPos = transform.position;
+            flag = true;
+            print(transform.position);
+            //transform.position = new Vector3(505.07f, 65.76f, 122.46f);
+            
+
+            DeactivateAllChildColliders();
+            FindObjectOfType<Player>().isAlive = false;
             StartCoroutine(Finish());
         }
         else
